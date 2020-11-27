@@ -1,0 +1,59 @@
+<html class = "questionnaire-bg">
+  <head>
+    <title>Firebase Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet"/>
+    <link rel="stylesheet" href="./styles/newstyle.css" />
+    </head>
+    <body>
+        <div id="questionnaire_div" class="questionnaire-div">
+            <h3 class = "q">This questionnaire is to determine what body type you are and help us find your particular workout.</h3>
+            <p class= "bold">My shoulders are:</p>
+            <input type = "radio" name = "shoulder" value="3">Wider than my hips<br>
+            <input type = "radio" name = "shoulder" value="2">The same width as my hips<br>
+            <input type = "radio" name = "shoulder" value="1">The same width as my hips<br>
+            <p class= "bold">Relaxed-fit jeans are: </p>
+            <input type = "radio" name = "jeans" value="3">Tight around my glutes<br>
+            <input type = "radio" name = "jeans" value="2">Perfect around my glutes<br>
+            <input type = "radio" name = "jeans" value="1">Loose around my glutes<br>
+            <p class= "bold">My forearms look:</p>
+            <input type = "radio" name = "forearms" value="3">Big<br>
+            <input type = "radio" name = "forearms" value="2">Average<br>
+            <input type = "radio" name = "forearms" value="1">Small<br>
+            <p class= "bold">My body:</p>
+            <input type = "radio" name = "body" value="3">Carries extra fat<br>
+            <input type = "radio" name = "body" value="2">Some what lean but muscular<br>
+            <input type = "radio" name = "body" value="1">Stays mostly skinny<br>
+            <p class= "bold">My body is:</p>
+            <input type = "radio" name = "bodyis" value="3">Round and soft<br>
+            <input type = "radio" name = "bodyis" value="2">Square and rugged<br>
+            <input type = "radio" name = "bodyis" value="1">Long and narrow<br>
+            <p class= "bold">If I encircle my wrist with my other hand's middle finger and thumb:</p>
+            <input type = "radio" name = "finger" value="3">The middle finger and thumb do not touch<br>
+            <input type = "radio" name = "finger" value="2">The middle finger and thumb just touch<br>
+            <input type = "radio" name = "finger" value="1">The middle finger and thumb overlap<br>
+            <p class= "bold">Concerning my weight, I</p>
+            <input type = "radio" name = "myweight" value="3">Gain weight easily, but find it hard to lose<br>
+            <input type = "radio" name = "myweight" value="2">I can gain and lose without too much of a struggle.<br>
+            <input type = "radio" name = "myweight" value="1">Have trouble gaining weight in the form of muscle or fat.<br>
+            <p class= "bold">Which range best describes your chest measurement?<br>(If you don't know just guess)</p>
+            <input type = "radio" name = "range" value="3">43 inches or more.<br>
+            <input type = "radio" name = "range" value="2">37-43 inches.<br>
+            <input type = "radio" name = "range" value="1">37 inches or less.<br>
+            <button onclick="questionnaire()">Submit</button>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>
+        <script src = "./scripts/questionnaire.js"> </script>
+        <script>
+                var firebaseConfig = {
+                    apiKey: "AIzaSyCVGsDdbKJYehZNz83LMRWSGWXEXopJJqU",
+                    authDomain: "workout-ada54.firebaseapp.com",
+                    databaseURL: "https://workout-ada54.firebaseio.com",
+                    projectId: "workout-ada54",
+                    storageBucket: "workout-ada54.appspot.com",
+                    messagingSenderId: "323648675143",
+                    appId: "1:323648675143:web:34762df453e1d6dc0a0062",
+                };
+            firebase.initializeApp(firebaseConfig);
+        </script>
+    </body>
+</html>
