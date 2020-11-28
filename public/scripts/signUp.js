@@ -31,7 +31,7 @@ function signUp(){
               gender: gender,
               first : true
             });
-            window.alert('You\'re signed up go back to the login page to sign in');
+            location.replace("welcome.html");
           } else {
             window.alert('something went wrong');
           }

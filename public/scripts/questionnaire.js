@@ -1,5 +1,19 @@
 function questionnaire(){
+    var days = new Array(7);
+    let daysIn = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     var score = 0;
+    var goal = 0;
+
+    var ele = document.getElementByName('goal');
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) 
+        goal = i;
+    }
+
+    for(i = 0; i < 7; i++) {
+        days[i] = document.getElementByName(daysIn[i]);
+    }
+    
     var ele = document.getElementsByName('shoulder');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) 
@@ -11,7 +25,7 @@ function questionnaire(){
         if(ele[i].checked) 
         score = score + parseInt(ele[i].value);
     } 
-
+    
     var ele = document.getElementsByName('forearms');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) 
