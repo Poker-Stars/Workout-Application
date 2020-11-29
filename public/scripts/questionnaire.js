@@ -1,78 +1,76 @@
 function questionnaire(){
+    var height;
+    var weight;
+    var goal = 1;
     var days = new Array(7);
-    let daysIn = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-    var score = 0;
-    var goal = 0;
+    var time = 45;
+    var body_fat = 1;
+    var shoulders = 1;
+    var legs = 1;
+    var arms = 1;
+    var chest = 1;
 
-    var ele = document.getElementByName('goal');
+    var heightfeet = parseInt(document.getElementById('height-feet').value);
+    var heightinches = parseInt(document.getElementById('height-inches').value);
+    
+    height = ((12*heightfeet) + heightinches) * 2.54 // conversion to cm
+
+    weight = parseInt(document.getElementById('weight').value);
+
+    var ele = document.getElementsByName('goal');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) 
         goal = i;
     }
 
-    for(i = 0; i < 7; i++) {
-        days[i] = document.getElementByName(daysIn[i]);
+    var ele = document.getElementsByName('day');
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) 
+            days[i] = true;
+        else
+            days[i] = false;
+    }
+
+    var ele = document.getElementsByName('time');
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) {
+            time = parseInt(ele[i].value);
+        }
     }
     
+    var ele = document.getElementsByName('body_fat');
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) {
+            body_fat = i;
+        }
+    }
+
     var ele = document.getElementsByName('shoulder');
     for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) 
-        score = score + parseInt(ele[i].value);
-    } 
-
-    var ele = document.getElementsByName('jeans');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) 
-        score = score + parseInt(ele[i].value);
-    } 
-    
-    var ele = document.getElementsByName('forearms');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) 
-        score = score + parseInt(ele[i].value);
-    } 
-
-    var ele = document.getElementsByName('body');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) 
-        score = score + parseInt(ele[i].value);
-    } 
-
-    var ele = document.getElementsByName('bodyis');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) 
-        score = score + parseInt(ele[i].value);
-    } 
-
-    var ele = document.getElementsByName('finger');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) 
-        score = score + parseInt(ele[i].value);
-    } 
-
-    var ele = document.getElementsByName('myweight');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) 
-        score = score + parseInt(ele[i].value);
-    } 
-
-    var ele = document.getElementsByName('range');
-    for(i = 0; i < ele.length; i++) { 
-        if(ele[i].checked) 
-        score = score + parseInt(ele[i].value);
-    } 
-
-    console.log(score);
-
-    var bodytype = null;
-    if(score <= 9){
-        bodytype = "ectomorph";
+        if(ele[i].checked) {
+            shoulders = i;
+        }
     }
-    else if(score >= 18){
-        bodytype = "endomorph";
+
+    var ele = document.getElementsByName('legs');
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) {
+            wrist = i;
+        }
     }
-    else {
-        bodytype = "mesomorph";
+
+    var ele = document.getElementsByName('arms');
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) {
+            wrist = i;
+        }
+    }
+
+    var ele = document.getElementsByName('chest');
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) {
+            chest = i;
+        }
     }
 
     const database = firebase.database();
@@ -92,12 +90,17 @@ function questionnaire(){
             ref.child(useruid).set({
               username: snapshot.val().username,
               email: snapshot.val().email,
-              weight: snapshot.val().weight,
-              height: snapshot.val().height,
-              age: snapshot.val().age,
-              gender: snapshot.val().gender,
-              first : false,
-              bodytype: bodytype
+              weight: weight,
+              height: height,
+              time : time,
+              goal : goal,
+              days : days,
+              body_fat : body_fat,
+              shoulders : shoulders,
+              legs : legs,
+              arms : arms,
+              chest : chest,
+              first : false
             });
             location.replace("welcome.html");
         })

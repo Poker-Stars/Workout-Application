@@ -6,51 +6,51 @@
     </head>
     <body>
         <div id="questionnaire_div" class="questionnaire-div">
-            <h3 class = "q">This questionnaire is to determine what body type you are and help us find your particular workout.</h3>
+            <h3 class = "q">This questionnaire is to help us determine your particular workout. </h3>
+            <p class= "body"></p>
+            <div>
+            <label for = "heightlabel">Height</label> 
+            <input type = "number" placeholder = "(ft)" id = "height-feet" min = "0" max = "9" style="width: 50px;" required/>
+            <input type = "number" placeholder = "(in)" id = "height-inches" min = "0" max = "11" style="width: 50px;"required/>
+            <label for = "weightlabel">Weight</label>
+            <input type = "number" placeholder = "(lbs)" id = "weight" style = "width: 60px" required/>
+            </div>
             <p class= "bold">Which best describes your workout goals?</p>
             <input type = "radio" name = "goal" value = "3">Burn fat to lose weight<br>
-            <input type = "radio" name = "goal" value = "2">Tone<br>
+            <input type = "radio" name = "goal" value = "2">Tone (lose fat while gaining muscle)<br>
             <input type = "radio" name = "goal" value = "1">Gain muscle mass<br>
             <p class= "bold">Which days are you available to workout? (Leave at least one day for a rest day)</p>
-            <input type = "checkbox" name = "sunday" value = "0">Sunday<br>
-            <input type = "checkbox" name = "monday" value = "1">Monday<br>
-            <input type = "checkbox" name = "tuesday" value = "2">Tuesday<br>
-            <input type = "checkbox" name = "wednesday" value = "3">Wednesday<br>
-            <input type = "checkbox" name = "thursday" value = "4">Thursday<br>
-            <input type = "checkbox" name = "friday" value = "5">Friday<br>
-            <input type = "checkbox" name = "saturday" value = "6">Saturday<br>
+            <input type = "checkbox" name = "day" value = "0">Sunday<br>
+            <input type = "checkbox" name = "day" value = "1">Monday<br>
+            <input type = "checkbox" name = "day" value = "2">Tuesday<br>
+            <input type = "checkbox" name = "day" value = "3">Wednesday<br>
+            <input type = "checkbox" name = "day" value = "4">Thursday<br>
+            <input type = "checkbox" name = "day" value = "5">Friday<br>
+            <input type = "checkbox" name = "day" value = "6">Saturday<br>
+            <p class= "bold">How long would you like to spend exercising each workout day?</p>
+            <input type = "radio" name = "time" value="30">30 minutes<br>
+            <input type = "radio" name = "time" value="45">45 minutes<br>
+            <input type = "radio" name = "time" value="60">60 minutes<br>
+            <p class= "bold">I would say that my body:</p>
+            <input type = "radio" name = "body_fat" value="3">Carries extra fat<br>
+            <input type = "radio" name = "body_fat" value="2">Is somewhat lean but muscular<br>
+            <input type = "radio" name = "body_fat" value="1">Is mostly skinny<br>
             <p class= "bold">My shoulders are:</p>
             <input type = "radio" name = "shoulder" value="3">Wider than my hips<br>
             <input type = "radio" name = "shoulder" value="2">The same width as my hips<br>
-            <input type = "radio" name = "shoulder" value="1">The same width as my hips<br>
-            <p class= "bold">Relaxed-fit jeans are: </p>
-            <input type = "radio" name = "jeans" value="3">Tight around my glutes<br>
-            <input type = "radio" name = "jeans" value="2">Perfect around my glutes<br>
-            <input type = "radio" name = "jeans" value="1">Loose around my glutes<br>
-            <p class= "bold">My forearms look:</p>
-            <input type = "radio" name = "forearms" value="3">Big<br>
-            <input type = "radio" name = "forearms" value="2">Average<br>
-            <input type = "radio" name = "forearms" value="1">Small<br>
-            <p class= "bold">My body:</p>
-            <input type = "radio" name = "body" value="3">Carries extra fat<br>
-            <input type = "radio" name = "body" value="2">Some what lean but muscular<br>
-            <input type = "radio" name = "body" value="1">Stays mostly skinny<br>
-            <p class= "bold">My body is:</p>
-            <input type = "radio" name = "bodyis" value="3">Round and soft<br>
-            <input type = "radio" name = "bodyis" value="2">Square and rugged<br>
-            <input type = "radio" name = "bodyis" value="1">Long and narrow<br>
-            <p class= "bold">If I encircle my wrist with my other hand's middle finger and thumb:</p>
-            <input type = "radio" name = "finger" value="3">The middle finger and thumb do not touch<br>
-            <input type = "radio" name = "finger" value="2">The middle finger and thumb just touch<br>
-            <input type = "radio" name = "finger" value="1">The middle finger and thumb overlap<br>
-            <p class= "bold">Concerning my weight, I</p>
-            <input type = "radio" name = "myweight" value="3">Gain weight easily, but find it hard to lose<br>
-            <input type = "radio" name = "myweight" value="2">I can gain and lose without too much of a struggle.<br>
-            <input type = "radio" name = "myweight" value="1">Have trouble gaining weight in the form of muscle or fat.<br>
-            <p class= "bold">Which range best describes your chest measurement?<br>(If you don't know just guess)</p>
-            <input type = "radio" name = "range" value="3">43 inches or more.<br>
-            <input type = "radio" name = "range" value="2">37-43 inches.<br>
-            <input type = "radio" name = "range" value="1">37 inches or less.<br>
+            <input type = "radio" name = "shoulder" value="1">Wider than my hips<br>
+            <p class= "bold">When I flex my legs:</p>
+            <input type = "radio" name = "legs" value="3">Nothing changes<br>
+            <input type = "radio" name = "legs" value="2">There is slight definition<br>
+            <input type = "radio" name = "legs" value="1">There is noticeable definition<br>
+            <p class= "bold">When I flex my arms:</p>
+            <input type = "radio" name = "arms" value="3">Nothing changes<br>
+            <input type = "radio" name = "arms" value="2">There is slight definition<br>
+            <input type = "radio" name = "arms" value="1">There is noticeable definition<br>
+            <p class= "bold">In standing posture and without sucking in your gut, does your chest extend past your belly?<br></p>
+            <input type = "radio" name = "chest" value="3">No, my belly is larger<br>
+            <input type = "radio" name = "chest" value="2">No, it's about the same<br>
+            <input type = "radio" name = "chest" value="1">Yes, my chest is larger than my belly<br>
             <button onclick="questionnaire()">Submit</button>
         </div>
         <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>

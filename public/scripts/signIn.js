@@ -20,11 +20,13 @@ function signIn(){
           ref.child(useruid).set({
             username: snapshot.val().username,
             email: snapshot.val().email,
+            /*
             weight: snapshot.val().weight,
             height: snapshot.val().height,
             age: snapshot.val().age,
             gender: snapshot.val().gender,
             first : false
+            */
           });
           location.replace("questionnaire.html");
         }
