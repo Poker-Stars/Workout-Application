@@ -41,28 +41,28 @@ function questionnaire(){
     var ele = document.getElementsByName('body_fat');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            body_fat = i;
+            body_fat = i+1;
         }
     }
 
     var ele = document.getElementsByName('shoulder');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            shoulders = i;
+            shoulders = i+1;
         }
     }
 
     var ele = document.getElementsByName('legs');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            wrist = i;
+            legs = i+1;
         }
     }
 
     var ele = document.getElementsByName('arms');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            wrist = i;
+            arms = i+1;
         }
     }
 
