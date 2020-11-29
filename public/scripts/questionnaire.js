@@ -89,7 +89,7 @@ function questionnaire(){
         firebase.database().ref('users/'+useruid).once('value').then(function (snapshot){
             ref.child(useruid).set({
               username: snapshot.val().username,
-              email: snapshot.val().email,
+              email: snapshot.val().email, 
               weight: weight,
               height: height,
               time : time,

@@ -15,8 +15,11 @@ function calculateWorkout() {
     var wrist;
     var weight_gain;
     var chest;
+    var user_exercises = new Array();
+    var exercise_specifics = new Array();
 
     firebase.auth().onAuthStateChanged((user) => {
+        window.alert("Hiya1");
         if (user) {
             var useruid = user.uid;
             console.log(useruid);
@@ -25,24 +28,35 @@ function calculateWorkout() {
             window.alert("No user is signed in");
         }
         firebase.database().ref('users/'+useruid).once('value').then(function (snapshot){
-            bodytype = snapshot.val().bodytype;
-            for(i = 0; i < 7; i++)
-                if(snapshot.child(days).child(i).val()) {
+            window.alert("Hiya2");
+
+            goal = snapshot.val().goal;
+
+            if(snapshot.hasChild('user_exercises')) {
+                snapshot.child('user_exercises').forEach(function(child) {
+                    child.forEach(function(child) {
+                        exercise_specifics.push(child.val());
+                    })
+                    user_exercises.push(exercise_specifics);
+                });
+            }
+            var i = 0;
+            snapshot.child('days').forEach(function(daybool) {
+                if (daybool.val()) {
                     _workoutDays[dayCount] = _workoutDays[i];
                     dayCount++;
                 }
-            goal = snapshot.val().goal;
+                i++;
+            });
+            var workoutDays = _workoutDays.slice(0, dayCount);
+            body_fat = snapshot.val().bodyfat;
             shoulders = snapshot.val().shoulders;
             legs = snapshot.val().legs;
-            forearms = snapshot.val().forearms;
-            body_fat = snapshot.val().bodyfat;
-            wrist = snapshot.val().wrist;
-            body_shape = snapshot.val().body_shape;
+            arms = snapshot.val().arms; 
             chest = snapshot.val().chest;
-        })
+            window.alert("dayCount: " + dayCount);
+            window.alert("days: " + workoutDays);
+        });
     });
-    console.log("Hiya"+days);
-    var workoutDays = _workoutDays.slice(0, dayCount);
-    window.alert("Successful");
-    
 }
+

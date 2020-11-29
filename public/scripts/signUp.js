@@ -16,7 +16,8 @@ function signUp(){
               ref.child(useruid).set({
                 username: username.value,
                 email: email.value,
-                first : true
+                first : true,
+                user_exercises : null
               });
               location.replace("index.html");
           });
