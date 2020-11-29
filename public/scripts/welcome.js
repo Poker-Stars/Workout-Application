@@ -11,10 +11,8 @@ function gotData(){
         firebase.database().ref('users/'+useruid).once('value').then(function (snapshot){
             document.getElementById("user_param").innerHTML = "Name : " + snapshot.val().username;
             document.getElementById("email_param").innerHTML = "Email : " + snapshot.val().email;
-            document.getElementById("weight_param").innerHTML = "Weight : " + snapshot.val().weight;
-            document.getElementById("height_param").innerHTML = "Height : " + snapshot.val().height;
-            document.getElementById("age_param").innerHTML = "Age : " + snapshot.val().age;
-            document.getElementById("gender_param").innerHTML = "Gender : " + snapshot.val().gender;
+            document.getElementById("weight_param").innerHTML = "Weight : " + snapshot.val().weight + " lbs";
+            document.getElementById("height_param").innerHTML = "Height : " + snapshot.val().height + " cm";
             // document.getElementById("first_param").innerHTML = "Gender : " + snapshot.val().firsttime;
         })
     });
