@@ -4,12 +4,12 @@ function questionnaire(){
     var goal = 1;
     var days = new Array(7);
     var time = 45;
-    var body_fat = 1;
-    var shoulders = 1;
-    var legs = 1;
-    var arms = 1;
-    var back = 1;
-    var chest = 1;
+    var body_fat = 2;
+    var shoulders = 2;
+    var legs = 2;
+    var arms = 2;
+    var back = 2;
+    var chest = 2;
 
     var heightfeet = parseInt(document.getElementById('height-feet').value);
     var heightinches = parseInt(document.getElementById('height-inches').value);
@@ -70,7 +70,7 @@ function questionnaire(){
     var ele = document.getElementsByName('back');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            arms = (2-i)+1;
+            back = (2-i)+1;
         }
     }
 
