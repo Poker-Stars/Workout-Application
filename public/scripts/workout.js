@@ -12,9 +12,9 @@ function calculateWorkout() {
     var bodyFat;
     var chest;
     var userExercises = new Array();
-    var exerciseSpecifics = new Array();
     var exerciseTime;
     var schedule = null;
+    var exOBJ;
 
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -28,14 +28,19 @@ function calculateWorkout() {
 
             goal = snapshot.val().goal;
 
-            if(snapshot.hasChild('user_exercises')) {
-                snapshot.child('user_exercises').forEach(function(child) {
-                    child.forEach(function(child) {
-                        exercise_specifics.push(child.val());
-                    })
-                    user_exercises.push(exercise_specifics);
-                });
-            }
+            snapshot.child('user_exercises').forEach(function(exDB) {
+                exOBJ = new Exercise(exDB.val().name, exDB.val().type);
+                exOBJ.record = exDB.child(record);
+                exOBJ.procedure = exDB.val().procedure;
+                exOBJ.speed = exDB.val().speed;
+                exOBJ.muscles = exDB.val().muscles;
+                exOBJ.reps = exDB.val().reps;
+                exOBJ.sets = exDB.val().sets;
+                exOBJ.time = exDB.val().time;
+                userExercises.push(Exercise.copy(exOBJ));
+                exOBJ = null;
+            });
+
             var i = 0;
             snapshot.child('days').forEach(function(daybool) {
                 if (daybool.val()) {
@@ -53,6 +58,31 @@ function calculateWorkout() {
             back = snapshot.val().back;
             chest = snapshot.val().chest;
             
+            schedule1 = weightloss(exerciseTime, dayCount);
+            schedule2 = tone(exerciseTime, dayCount);
+            schedule3 = gainmass(exerciseTime, dayCount);
+            
+            var wl = fillToneSchedule(schedule2, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises, lock);
+            
+            var str = "";
+            for(i = 0; i < wl[0].length; i++) {
+                str = str + wl[0][i].name;
+            }
+            document.getElementById("cardio_param").innerHTML = str;
+            str = "";
+            for(i = 0; i < wl[1].length; i++) {
+                str = str + wl[1][i].name;
+            }
+            document.getElementById("bodyweight_param").innerHTML = str;
+            str = "";
+            for(i = 0; i < wl[2].length; i++) {
+                str = str + wl[2][i].name;
+            }
+            document.getElementById("strength_param").innerHTML = str;
+
+            
+            fillToneSchedule(schedule2, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises);
+            fillStrengthSchedule(schedule3, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises);
             switch(goal) {
                 case 0:
                     schedule = weightloss(exerciseTime, dayCount);
@@ -64,6 +94,8 @@ function calculateWorkout() {
                     schedule = gainmass(exerciseTime, dayCount);
                     break;
             }
+            */
+            window.alert("hey hey hey");
         });
     });
 }
