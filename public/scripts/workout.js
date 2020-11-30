@@ -1,8 +1,9 @@
+
 function calculateWorkout() {
     const database = firebase.database();
     const ref = database.ref('users');
     const auth = firebase.auth();
-    let _workoutDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    let workoutDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var dayCount = 0;
     var goal;
     var shoulders;
@@ -13,6 +14,7 @@ function calculateWorkout() {
     var userExercises = new Array();
     var exerciseSpecifics = new Array();
     var exerciseTime;
+    var schedule = null;
 
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -37,12 +39,12 @@ function calculateWorkout() {
             var i = 0;
             snapshot.child('days').forEach(function(daybool) {
                 if (daybool.val()) {
-                    _workoutDays[dayCount] = _workoutDays[i];
+                    workoutDays[dayCount] = workoutDays[i];
                     dayCount++;
                 }
                 i++;
             });
-            var workoutDays = _workoutDays.slice(0, dayCount);
+            workoutDays = workoutDays.slice(0, dayCount);
             exerciseTime = snapshot.val().time;
             bodyFat = snapshot.val().bodyfat;
             shoulders = snapshot.val().shoulders;
@@ -50,6 +52,18 @@ function calculateWorkout() {
             arms = snapshot.val().arms;
             back = snapshot.val().back;
             chest = snapshot.val().chest;
+            
+            switch(goal) {
+                case 0:
+                    schedule = weightloss(exerciseTime, dayCount);
+                    break;
+                case 1:
+                    schedule = tone(exerciseTime, dayCount);
+                    break;
+                case 2:
+                    schedule = gainmass(exerciseTime, dayCount);
+                    break;
+            }
         });
     });
 }

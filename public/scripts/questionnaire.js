@@ -112,7 +112,7 @@ function questionnaire(){
               first : false
             });
             location.replace("welcome.html");
-        })
+        });
       });
 
 }
