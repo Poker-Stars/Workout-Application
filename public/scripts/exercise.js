@@ -58,22 +58,22 @@ class Exercise {
 
     static copy(orig) {
         var nuevo = new Exercise(Object.assign(orig.name), Object.assign(orig.type));
-        nuevo.procedure = trps(orig.procedure);
-        nuevo.muscles = trps(orig.muscles);
-        nuevo.record = trps(orig.record);
-        nuevo.reps = trps(orig.reps);
-        nuevo.sets = trps(orig.speed);
-        nuevo.time = trps(orig.time);
-        nuevo.record = trps(orig.record);
-        nuevo.weight = trps(orig.weight);
-        nuevo.completions = trps(orig.completions);
-        nuevo.disliked = trps(orig.disliked);
-        function trps(prop) {
-            if (prop == null || prop == 'undefined')
-                return null;
-            else
-                return Object.assign(prop);
-        }
+        nuevo._procedure = Exercise.trps(orig.procedure);
+        nuevo._muscles = Exercise.trps(orig.muscles);
+        nuevo._record = Exercise.trps(orig.record);
+        nuevo._reps = Exercise.trps(orig.reps);
+        nuevo._sets = Exercise.trps(orig.speed);
+        nuevo._time = Exercise.trps(orig.time);
+        nuevo._record = Exercise.trps(orig.record);
+        nuevo._weight = Exercise.trps(orig.weight);
+        nuevo._completions = Exercise.trps(orig.completions);
+        nuevo._disliked = Exercise.trps(orig.disliked);
         return nuevo;
+    }
+
+    static trps(prop) {
+        if (prop == null || prop == 'undefined')
+            return null;
+        return Object.assign(prop);
     }
 }
