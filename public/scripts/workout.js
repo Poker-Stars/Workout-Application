@@ -62,7 +62,27 @@ function calculateWorkout() {
             schedule2 = tone(exerciseTime, dayCount);
             schedule3 = gainmass(exerciseTime, dayCount);
             
-            fillToneSchedule(schedule2, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises); 
+            var toneList = {cardio: new Array(), bodyweight: new Array(), strength: new Array() };
+            fillToneSchedule(schedule2, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises, toneList); 
+
+            setTimeout( function() {
+                var str = "";
+                for(i = 0; i < toneList.cardio.length; i++) {
+                    str = str + toneList.cardio[i].name + ", ";
+                }
+                document.getElementById("cardio_param").innerHTML = "Cardio Exercises: " + str;
+                str = "";
+                for(i = 0; i < toneList.bodyweight.length; i++) {
+                    str = str + toneList.bodyweight[i].name + ", ";
+                }
+                document.getElementById("bodyweight_param").innerHTML = "Bodyweight Exercises: " + str;
+                str = "";
+                for(i = 0; i < toneList.strength.length; i++) {
+                    str = str + toneList.strength[i].name + ", ";
+                }
+                document.getElementById("strength_param").innerHTML = "Strength Exercises: " + str;
+                window.alert("\"I still need to do stuff\" - Alex");
+            }, 4000);
 
             /*
             fillToneSchedule(schedule2, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises);

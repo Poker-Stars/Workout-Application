@@ -17,6 +17,13 @@ function fillToneSchedule(schedule, dayCount, bodyFat, shoulders, legs, arms, ba
     var strengthList = Array();
     var counter = 0;
     
+
+    function release() {
+        toneList.cardio = cardioList;
+        toneList.bodyweight = bodyweightList;
+        toneList.strength = strengthList;
+    }
+
     /* put exercises that the user has already done into the lists */
     userExercises.forEach((exOBJ) => {
         
@@ -98,7 +105,7 @@ function fillToneSchedule(schedule, dayCount, bodyFat, shoulders, legs, arms, ba
                 counter++;
             });
             if(counter == snapshot.numChildren()) {
-                window.alert("\"I still need to do shit\" - Alex");
+                release();
             }
         }));
     }
