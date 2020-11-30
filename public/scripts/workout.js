@@ -47,13 +47,9 @@ function calculateWorkout() {
             bodyFat = snapshot.val().bodyfat;
             shoulders = snapshot.val().shoulders;
             legs = snapshot.val().legs;
-            arms = snapshot.val().arms; 
+            arms = snapshot.val().arms;
+            back = snapshot.val().back;
             chest = snapshot.val().chest;
-            window.alert("dayCount: " + dayCount);
-            window.alert("days: " + workoutDays);
-
-            
-
         });
     });
 }

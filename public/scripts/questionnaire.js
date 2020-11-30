@@ -8,6 +8,7 @@ function questionnaire(){
     var shoulders = 1;
     var legs = 1;
     var arms = 1;
+    var back = 1;
     var chest = 1;
 
     var heightfeet = parseInt(document.getElementById('height-feet').value);
@@ -41,35 +42,42 @@ function questionnaire(){
     var ele = document.getElementsByName('body_fat');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            body_fat = i+1;
+            body_fat = (2-i)+1;
         }
     }
 
     var ele = document.getElementsByName('shoulder');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            shoulders = i+1;
+            shoulders = (2-i)+1;
         }
     }
 
     var ele = document.getElementsByName('legs');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            legs = i+1;
+            legs = (2-i)+1;
         }
     }
 
     var ele = document.getElementsByName('arms');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            arms = i+1;
+            arms = (2-i)+1;
+        }
+    }
+
+    var ele = document.getElementsByName('back');
+    for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) {
+            arms = (2-i)+1;
         }
     }
 
     var ele = document.getElementsByName('chest');
     for(i = 0; i < ele.length; i++) { 
         if(ele[i].checked) {
-            chest = i;
+            chest = (2-i)+1;
         }
     }
 
@@ -97,6 +105,7 @@ function questionnaire(){
               days : days,
               body_fat : body_fat,
               shoulders : shoulders,
+              back : back,
               legs : legs,
               arms : arms,
               chest : chest,
