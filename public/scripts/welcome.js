@@ -12,7 +12,7 @@ function gotData(){
             document.getElementById("user_param").innerHTML = "Name : " + snapshot.val().username;
             document.getElementById("email_param").innerHTML = "Email : " + snapshot.val().email;
             document.getElementById("weight_param").innerHTML = "Weight : " + snapshot.val().weight + " lbs";
-            document.getElementById("height_param").innerHTML = "Height : " + snapshot.val().height + " cm";
+            document.getElementById("height_param").innerHTML = "Height : " + snapshot.val().height_ft + "\'" + snapshot.val().height_in + "\"";
             // document.getElementById("first_param").innerHTML = "Gender : " + snapshot.val().firsttime;
         })
     });
