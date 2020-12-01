@@ -58,16 +58,16 @@ class Exercise {
 
     static copy(orig) {
         var nuevo = new Exercise(Object.assign(orig.name), Object.assign(orig.type));
-        nuevo._procedure = Exercise.trps(orig.procedure);
-        nuevo._muscles = Exercise.trps(orig.muscles);
-        nuevo._record = Exercise.trps(orig.record);
-        nuevo._reps = Exercise.trps(orig.reps);
-        nuevo._sets = Exercise.trps(orig.speed);
-        nuevo._time = Exercise.trps(orig.time);
-        nuevo._record = Exercise.trps(orig.record);
-        nuevo._weight = Exercise.trps(orig.weight);
-        nuevo._completions = Exercise.trps(orig.completions);
-        nuevo._disliked = Exercise.trps(orig.disliked);
+        nuevo._procedure = util.trps(orig.procedure);
+        nuevo._muscles = util.trps(orig.muscles);
+        nuevo._record = util.trps(orig.record);
+        nuevo._reps = util.trps(orig.reps);
+        nuevo._sets = util.trps(orig.speed);
+        nuevo._time = util.trps(orig.time);
+        nuevo._record = util.trps(orig.record);
+        nuevo._weight = util.trps(orig.weight);
+        nuevo._completions = util.trps(orig.completions);
+        nuevo._disliked = util.trps(orig.disliked);
         return nuevo;
     }
 

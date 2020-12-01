@@ -21,7 +21,8 @@
         <div id = "welcome_div" class = "main-div"> 
             <h1>Welcome</h1>
             <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>
-            <script src = "./scripts/welcome.js"> </script>
+            <script src = "./scripts/util.js"></script>
+            <script src = "./scripts/welcome.js"></script>
             <script>
                 var firebaseConfig = {
                     apiKey: "AIzaSyCVGsDdbKJYehZNz83LMRWSGWXEXopJJqU",
@@ -35,8 +36,7 @@
                 firebase.initializeApp(firebaseConfig);
                 gotData();
             </script> 
-            <p id="user_param">User</p> 
-            <p id="email_param">Email</p> 
+            <p id="user_param">User</p>
             <p id="weight_param">Weight</p> 
             <p id="height_param">Height</p>
             <p id="goal_param">Goal</p>

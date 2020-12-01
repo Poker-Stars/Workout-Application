@@ -10,26 +10,13 @@ function gotData() {
 
         firebase.database().ref('users/'+useruid).once('value').then(function (snapshot){
             document.getElementById("user_param").innerHTML = "Name : " + snapshot.val().username;
-            document.getElementById("email_param").innerHTML = "Email : " + snapshot.val().email;
             document.getElementById("weight_param").innerHTML = "Weight : " + snapshot.val().weight + " lbs";
             document.getElementById("height_param").innerHTML = "Height : " + snapshot.val().height_ft + "\'" + snapshot.val().height_in + "\"";
-            
-            /* convert database days to day array */
-            var workoutDays = ['Sundays', 'Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays'];
-            var dayCount = 0;
-            var i = 0;
-            snapshot.child('days').forEach(function(daybool) {
-                if (daybool.val()) {
-                    workoutDays[dayCount] = workoutDays[i];
-                    dayCount++;
-                }
-                i++;
-            });
-
             document.getElementById("time_param").innerHTML = "I work out for " + snapshot.child('time').val() + " minutes a day.";
 
             var str = "";
-            workoutDays = workoutDays.slice(0, dayCount);
+            var workoutDays = util.daysDB_Arr(snapshot.child('days'));
+            var dayCount = workoutDays.length;
             for(i = 0; i < dayCount; i++) {
                 if(dayCount >= 1 && i == dayCount - 1) str = str + "and ";
                 str = str + workoutDays[i];
