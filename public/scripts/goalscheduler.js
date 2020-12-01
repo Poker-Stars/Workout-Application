@@ -72,34 +72,30 @@ function plan_tone(plan, exerciseTime, dayCount) {
 /*
 * The gain muscle mass goal is split between bodyweight and strength exercises; cardio kills gainz
 */
-function gainmass(dayCount, exerciseTime) {
-
-    var bodyweightBlock = new Array();
-    var strengthBlock = new Array();
+function gainmass(plan, dayCount, exerciseTime) {
 
     switch(exerciseTime) {
 
         case 30:
             for(i = 0; i < dayCount; i++) {
-                bodyweightBlock.push([15, 3]);
-                strengthBlock.push([15, 3]);
+                plan.bodyweightBlock.push([15, 3]);
+                plan.strengthBlock.push([15, 3]);
             }
             break;
 
         case 45:
             for(i = 0; i < dayCount; i++) {
-                bodyweightBlock.push([20, 4]);
-                strengthBlock.push([25, 5]);
+                plan.bodyweightBlock.push([20, 4]);
+                plan.strengthBlock.push([25, 5]);
             }
             break;
             
         case 60:
             for(i = 0; i < dayCount; i++) {
                 
-                bodyweightBlock.push([30, 6]);
-                strengthBlock.push([30, 6]);
+                plan.bodyweightBlock.push([30, 6]);
+                plan.strengthBlock.push([30, 6]);
             }
             break;
     }
-    return [bodyweightBlock, strengthBlock];
 }
