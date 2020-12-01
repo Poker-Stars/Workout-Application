@@ -14,7 +14,7 @@ function questionnaire(){
     var heightfeet = parseInt(document.getElementById('height-feet').value);
     var heightinches = parseInt(document.getElementById('height-inches').value);
     
-    height = ((12*heightfeet) + heightinches) * 2.54 // conversion to cm
+    height = ((12*heightfeet) + heightinches) * 0.0254 // conversion to meters
 
     weight = parseInt(document.getElementById('weight').value);
 
@@ -101,6 +101,7 @@ function questionnaire(){
               weight: weight,
               height_ft: heightfeet,
               height_in: heightinches,
+              height : height,
               time : time,
               goal : goal,
               days : days,

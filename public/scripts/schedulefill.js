@@ -9,7 +9,7 @@ function fillWeightlossSchedule(schedule, dayCount, bodyFat, shoulders, legs, ar
  * @author Alexander Gonzales
  */  
 
-function fillToneSchedule(schedule, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises, toneList) {
+function fillToneSchedule(schedule, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises, bodyShapeModifier, toneList) {
 
     /* lists of cardio exercises, bodyweight exercises, and strength exercises */
     var cardioList = Array();
@@ -97,6 +97,11 @@ function fillToneSchedule(schedule, dayCount, bodyFat, shoulders, legs, arms, ba
                         exOBJ.procedure = exDB.child('procedure').val();
                         if (exDB.hasChild('default-weight'))
                             exOBJ.weight = exDB.child('default-weight').val();
+                        if(bodyShapeModifier < 2 || chest < 3) {
+                            if(exOBJ.weight <= 30)
+                                exOBJ.weight = exOBJ.weight + 5*bodyShapeModifier;
+                            else exOBJ.weight = exOBJ.weight + 10*bodyShapeModifier;
+                        }
                         strengthList.push(Exercise.copy(exOBJ));
                         exOBJ = null;
                         console.log("strength " + counter);
