@@ -62,7 +62,7 @@ class Exercise {
         nuevo._muscles = util.trps(orig.muscles);
         nuevo._record = util.trps(orig.record);
         nuevo._reps = util.trps(orig.reps);
-        nuevo._sets = util.trps(orig.speed);
+        nuevo._sets = util.trps(orig.sets);
         nuevo._time = util.trps(orig.time);
         nuevo._record = util.trps(orig.record);
         nuevo._weight = util.trps(orig.weight);

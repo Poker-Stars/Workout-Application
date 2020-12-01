@@ -6,16 +6,31 @@ class util {
     }
 
     static daysDB_Arr(chld) {
-        var workoutDays = ['Sundays', 'Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays'];
-        var dayCount = 0;
+        var woDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        var dc = 0;
         var i = 0;
         chld.forEach(function(daybool) {
             if (daybool.val()) {
-                workoutDays[dayCount] = workoutDays[i];
-                dayCount++;
+                woDays[dc] = woDays[i];
+                dc++;
             }
             i++;
         });
-        return workoutDays.slice(0, dayCount);
+        return woDays.slice(0, dc);
+    }
+    static included (exerciseArr, exerName) {
+        var there = false;
+        exerciseArr.forEach(exerOut => {
+            if(exerOut.name == exerName) there = true;
+        });
+        return there;
+    }
+
+    static copyArr(orig) {
+        var nuevoArr = new Array();
+        orig.forEach(exer => {
+            nuevoArr.push(Exercise.copy(exer));
+        });
+        return nuevoArr;
     }
 }

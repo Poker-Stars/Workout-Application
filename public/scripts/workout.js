@@ -3,7 +3,7 @@ function calculateWorkout() {
     const database = firebase.database();
     const ref = database.ref('users');
     const auth = firebase.auth();
-    let workoutDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var workoutDays;
     var dayCount = 0;
     var goal;
     var height;
@@ -43,19 +43,13 @@ function calculateWorkout() {
                 exOBJ = null;
             });
 
-            var i = 0;
-            snapshot.child('days').forEach(function(daybool) {
-                if (daybool.val()) {
-                    workoutDays[dayCount] = workoutDays[i];
-                    dayCount++;
-                }
-                i++;
-            });
-            workoutDays = workoutDays.slice(0, dayCount);
+            workoutDays = util.daysDB_Arr(snapshot.child('days'));
+            dayCount = workoutDays.length;
+
             exerciseTime = snapshot.child('time').val();
             height = snapshot.child('height').val();
             bodyFat = snapshot.child('body_fat').val();
-            weight = snapshot.child('body_fat').val() * 0.4536;
+            weight = snapshot.child('weight').val() * 0.4536;
             shoulders = snapshot.child('shoulders').val();
             legs = snapshot.child('legs').val();
             arms = snapshot.child('arms').val();
@@ -69,48 +63,47 @@ function calculateWorkout() {
             else if(bmi >= 25 && bmi < 30) bodyShapeModifier = 1;
             else if(bmi >= 30) bodyShapeModifier = 2;
 
-            schedule1 = weightloss(exerciseTime, dayCount);
-            schedule2 = tone(exerciseTime, dayCount);
-            schedule3 = gainmass(exerciseTime, dayCount);
-            
-            var toneList = {cardio: new Array(), bodyweight: new Array(), strength: new Array() };
-            fillToneSchedule(schedule2, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises, bodyShapeModifier); 
 
-            setTimeout( function() {
-                var str = "";
-                for(i = 0; i < toneList.cardio.length; i++) {
-                    str = str + toneList.cardio[i].name + ", ";
-                }
-                document.getElementById("cardio_param").innerHTML = "Cardio Exercises: " + str;
-                str = "";
-                for(i = 0; i < toneList.bodyweight.length; i++) {
-                    str = str + toneList.bodyweight[i].name + ", ";
-                }
-                document.getElementById("bodyweight_param").innerHTML = "Bodyweight Exercises: " + str;
-                str = "";
-                for(i = 0; i < toneList.strength.length; i++) {
-                    str = str + toneList.strength[i].name + ", ";
-                }
-                document.getElementById("strength_param").innerHTML = "Strength Exercises: " + str;
-                window.alert("\"I still need to do stuff\" - Alex");
-            }, 4000);
+            var schedule = new Array();
 
-            /*
-            fillToneSchedule(schedule2, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises);
-            fillStrengthSchedule(schedule3, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises);
+            var plan;
+
             switch(goal) {
                 case 0:
-                    schedule = weightloss(exerciseTime, dayCount);
+                    plan = {cardioBlock: new Array(), bodyweightBlock: new Array()};
+                    plan_weightloss(plan, exerciseTime, dayCount);
+                    schedule_weightloss(schedule, plan, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises, bodyShapeModifier);
                     break;
                 case 1:
-                    schedule = tone(exerciseTime, dayCount);
+                    plan = {cardioBlock: new Array(), bodyweightBlock: new Array(), strengthBlock: new Array()};
+                    plan_tone(plan, exerciseTime, dayCount);
+                    schedule_tone(schedule, plan, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises, bodyShapeModifier);
                     break;
                 case 2:
-                    schedule = gainmass(exerciseTime, dayCount);
+                    plan = {bodyweightBlock: new Array(), strengthBlock: new Array()};
+                    plan_gainmass(plan, exerciseTime, dayCount);
+                    schedule_gainmass(schedule, plan, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises, bodyShapeModifier);
                     break;
             }
-            window.alert("hey hey hey");
-            */
+            var str = "";
+            setTimeout(function() {
+                for(i = 0; i < dayCount; i++) {
+                    console.log("" + workoutDays[i] + ":");
+                    for(j = 0; j < schedule[i].length; j++) {
+                        str = "\t" + schedule[i][j].name;
+                        if(schedule[i][j].procedure == 'time-minutes') 
+                            str = str + " for " + schedule[i][j].time + " minutes";
+                        if(schedule[i][j].procedure == 'repitition')
+                            str = str + "  " + schedule[i][j].sets + " x " + schedule[i][j].reps;
+                        if(schedule[i][j].type == 'strength')
+                            str = str + " @ " + schedule[i][j].weight + " lbs";
+                        if(schedule[i][j].procedure == 'time-seconds')
+                            str = str + "  " + schedule[i][j].sets + " x " + schedule[i][j].time + " seconds";
+                        console.log("" + str);
+                        str = "";
+                    }
+                }
+            }, 3000);
         });
     });
 }

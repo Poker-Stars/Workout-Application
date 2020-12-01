@@ -8,31 +8,28 @@
 /*
 * The weightloss goal is split between cardio and bodyweight
 */
-function weightloss(exerciseTime, dayCount) {
-
-    var cardioBlock = new Array();
-    var bodyweightBlock = new Array();
+function plan_weightloss(plan, exerciseTime, dayCount) {
 
     switch(exerciseTime) {
 
         case 30:
             for(i = 0; i < dayCount; i++) {
-                cardioBlock.push([15, 1]);
-                bodyweightBlock.push([15, 3]);
+                plan.cardioBlock.push([15, 1]);
+                plan.bodyweightBlock.push([15, 3]);
             }
             break;
 
         case 45:
             for(i = 0; i < dayCount; i++) {
-                cardioBlock.push([20, 2]);
-                bodyweightBlock.push([25, 5]);
+                plan.cardioBlock.push([20, 2]);
+                plan.bodyweightBlock.push([25, 5]);
             }
             break;
 
         case 60:
             for(i = 0; i < dayCount; i++) {
-                cardioBlock.push([30, 3]);
-                bodyweightBlock.push([30, 6]);
+                plan.cardioBlock.push([30, 3]);
+                plan.bodyweightBlock.push([30, 6]);
             }
             break;
     }
@@ -42,40 +39,34 @@ function weightloss(exerciseTime, dayCount) {
 /*
 * The tone goal is split between cardio, bodyweight, and strength
 */
-function tone(exerciseTime, dayCount) {
-
-    var cardioBlock = new Array();
-    var bodyweightBlock = new Array();
-    var strengthBlock = new Array();
+function plan_tone(plan, exerciseTime, dayCount) {
 
     switch(exerciseTime) {
 
         case 30:
             for(i = 0; i < dayCount; i++) {
-                cardioBlock.push([10, 1]);
-                bodyweightBlock.push([10, 2]);
-                strengthBlock.push([10, 2]);
+                plan.cardioBlock.push([10, 1]);
+                plan.bodyweightBlock.push([10, 2]);
+                plan.strengthBlock.push([10, 2]);
             }
             break;
 
         case 45:
             for(i = 0; i < dayCount; i++) {
-                cardioBlock.push([15, 1]);
-                bodyweightBlock.push([15, 3]);
-                strengthBlock.push([15, 3]);
+                plan.cardioBlock.push([15, 1]);
+                plan.bodyweightBlock.push([15, 3]);
+                plan.strengthBlock.push([15, 3]);
             }
             break;
 
         case 60:
             for(i = 0; i < dayCount; i++) {
-                cardioBlock.push([20, 1]);
-                bodyweightBlock.push([20, 4]);
-                strengthBlock.push([20, 4]);
+                plan.cardioBlock.push([20, 1]);
+                plan.bodyweightBlock.push([20, 4]);
+                plan.strengthBlock.push([20, 4]);
             }
             break;
     }
-    
-    return [cardioBlock, bodyweightBlock, strengthBlock];
 }
 
 /*
