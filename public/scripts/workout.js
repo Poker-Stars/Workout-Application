@@ -103,7 +103,7 @@ function calculateWorkout() {
                         str = "";
                     }
                 }
-            }, 3000);
+            }, 2000);
         });
     });
 }
