@@ -6,6 +6,7 @@
     font-family: 'Nunito', sans-serif;
     font-size: 16px;
 } */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap');
 
 * {
     outline: none;
@@ -16,9 +17,9 @@
     background-repeat: no-repeat;
     background-size: cover;  
     background-position: center center;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-}
+}                                                                                                         
 
 .signup-bg{
     background: url("images/planks2.jpg");
@@ -67,10 +68,10 @@ h3 {
     border-style: groove;
     border: 1px solid black; 
     border-radius: 10px;
-    background: url("images/dumbbell-transparent.PNG");
+    /* background: url("images/dumbbell-transparent.PNG");
     background-position: center;
-    background-size: cover;
-    /* background-color: white;  */
+    background-size: cover; */
+    background-color: white; 
     opacity: 0.9;
 }
 

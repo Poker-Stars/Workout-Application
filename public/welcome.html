@@ -1,6 +1,6 @@
-<html>
+<html class = "welcome-bg">
     <head>
-        <title> Login </title>
+        <title>Profile</title>
         <link
             href="https://fonts.googleapis.com/css?family=Nunito:400,600,700"
             rel="stylesheet"
@@ -11,6 +11,7 @@
         <header>
             <nav>
                 <ul class="nav__links">
+                    <li><a href="welcome.html"><p style = "color:white">Profile</p></a></li>
                     <li><a href="workout.html"><p style = "color:white">Workout</p></a></li>
                     <li><a href="tracker.html"><p style = "color: white">Tracker</p></a></li>
                     <li><a href="settings.html"><p style = "color: white">Settings</p></a></li>
@@ -19,7 +20,6 @@
             </nav>
         </header>
         <div id = "welcome_div" class = "main-div"> 
-            <h1>Welcome</h1>
             <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>
             <script src = "./scripts/util.js"></script>
             <script src = "./scripts/welcome.js"></script>
@@ -36,12 +36,17 @@
                 firebase.initializeApp(firebaseConfig);
                 gotData();
             </script> 
-            <p id="user_param">User</p>
-            <p id="weight_param">Weight</p> 
-            <p id="height_param">Height</p>
-            <p id="goal_param">Goal</p>
-            <p id="time_param">Time</p>
-            <p id="day_param">Days</p>
+            <div id = "welcome_div" class = "profile"> 
+                <h1 class = "h1c" id="user_param">User</h1>
+                <p class = "pi" id="weight_param">Weight</p> 
+                <p class = "pi" id="height_param">Height</p>
+                <p class = "pi" id="goal_param">Goal</p>
+                <br>
+                <h3 class = "h2c">Bio:</h3>
+                <!-- <p class = "pt" id="goal_param">Goal</p> -->
+                <p class = "pt" id="time_param">Time</p>
+                <p class = "pt" id="day_param">Days</p>
+            </div>
         </div>
     </body>
 </html>

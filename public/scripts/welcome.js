@@ -9,9 +9,10 @@ function gotData() {
         }
 
         firebase.database().ref('users/'+useruid).once('value').then(function (snapshot){
-            document.getElementById("user_param").innerHTML = "Name : " + snapshot.val().username;
-            document.getElementById("weight_param").innerHTML = "Weight : " + snapshot.val().weight + " lbs";
-            document.getElementById("height_param").innerHTML = "Height : " + snapshot.val().height_ft + "\'" + snapshot.val().height_in + "\"";
+            var usern = snapshot.val().username;
+            document.getElementById("user_param").innerHTML = usern.charAt(0).toUpperCase() + usern.slice(1);
+            document.getElementById("weight_param").innerHTML = "Weight: " + snapshot.val().weight + " lbs";
+            document.getElementById("height_param").innerHTML = "Height: " + snapshot.val().height_ft + "\'" + snapshot.val().height_in + "\"";
             document.getElementById("time_param").innerHTML = "I work out for " + snapshot.child('time').val() + " minutes a day.";
 
             var str = "";
@@ -25,16 +26,16 @@ function gotData() {
             }
             document.getElementById("day_param").innerHTML = "I work out on " + str;
 
-            str = "I am working out to ";
+            str = "Goal: ";
             switch(snapshot.child('goal').val()) {
                 case 0:
-                    str = str + "burn fat and lose weight!";
+                    str = str + "Burn fat and lose weight!";
                     break;
                 case 1:
-                    str = str + "tone my body and look great!";
+                    str = str + "Tone my body and look great!";
                     break;
                 case 2:
-                    str = str + "get some GAINS!!";
+                    str = str + "Get some GAINS!!";
                     break;
             }
             document.getElementById("goal_param").innerHTML = str;

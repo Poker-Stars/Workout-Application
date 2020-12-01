@@ -7,6 +7,30 @@
     font-family: 'Montserrat', sans-serif;
     list-style: none;
   }
+
+  .welcome-bg{
+    background-image: url("images/welcome.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
+
+  .workout-bg{
+    background-image: url("images/workout.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
+
+  .tracker-bg{
+    background-image: url("images/tracker.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+  }
   
   header {
     display: flex;
@@ -14,8 +38,9 @@
     align-items: center;
     padding: 30px 10%;
     background-color: #24252a;
+    opacity: 0.8;
   }
-  
+
   nav {
     order: 1;
   }
@@ -32,11 +57,11 @@
   .nav__links {
     list-style: none;
     display: flex;
-    font-size: 16px;
+    font-size: 20px;
   }
   
   .nav__links li {
-    padding: 0px 20px;
+    padding: 0px 30px;
   }
   
   .nav__links li:nth-child(1) {
@@ -45,6 +70,7 @@
   
   .nav__links li a {
     transition: all 0.3s ease 0s;
+    cursor: pointer;
   }
   
   .nav__links li a:hover {
@@ -65,4 +91,38 @@
   .cta:hover {
     background-color: rgba(0, 136, 169, 0.8);
   }
-  
+
+  .profile{
+    width: 490px;
+    /* height: 500px; */
+    margin: 0px auto;
+    margin-top: 150px;
+    padding: 10px;
+    border-style: groove;
+    border: 1px solid black; 
+    border-radius: 10px;
+    background-color: white;
+    opacity: 0.85;
+  }
+
+  .pi{
+    margin-top: 20px;
+    font-size: 28px;
+  }
+
+  .h2c{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 35px;
+  }
+
+  .h1c{
+    margin-bottom: 15px;
+    font-size: 40px;
+    text-align: center;
+  }
+
+  .pt{
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
