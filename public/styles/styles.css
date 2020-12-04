@@ -22,6 +22,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
+    background-color: white;
   }
 
   .tracker-bg{
@@ -94,12 +95,11 @@
 
   .profile{
     width: 490px;
-    /* height: 500px; */
     margin: 0px auto;
     margin-top: 150px;
     padding: 10px;
     border-style: groove;
-    border: 1px solid black; 
+    border: 0px solid black; 
     border-radius: 10px;
     background-color: white;
     opacity: 0.85;
@@ -125,4 +125,130 @@
   .pt{
     font-size: 28px;
     margin-bottom: 10px;
+  }
+
+  .workout{
+    width: 1600px;
+    height: 800px;
+    margin: 0px auto;
+    margin-top: 30px;
+    border-style: groove;
+    border: 0px solid black; 
+    border-radius: 10px;
+    /* background-color: rgba(1, 1, 1, 0); */
+  }
+
+  .h1wc{
+    margin-bottom: 30px;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+
+  .sunday{
+    position: absolute;
+    margin-left: 50px;
+    width: 300px;
+    height: 300px;
+    margin-left: 50px;
+    border-style: groove;
+    border: 0px solid black; 
+    border-radius: 10px;
+    background-color: skyblue;
+  }
+
+  .monday{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin-left: 450px;
+    border-style: groove;
+    border: 0px solid black; 
+    border-radius: 10px;
+    background-color: skyblue;
+  }
+
+  .tuesday{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin-left: 850px;
+    border-style: groove;
+    border: 0px solid black; 
+    border-radius: 10px;
+    background-color: skyblue;
+  }
+
+  .wednesday{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin-left: 1250px;
+    border-style: groove;
+    border: 0px solid black; 
+    border-radius: 10px;
+    background-color: skyblue;
+  }
+
+  .thursday{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin-top: 350px;
+    margin-left: 250px;
+    border-style: groove;
+    border: 0px solid black; 
+    border-radius: 10px;
+    background-color: skyblue;
+  }
+
+  .friday{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin-top: 350px;
+    margin-left: 650px;
+    border-style: groove;
+    border: 0px solid black; 
+    border-radius: 10px;
+    background-color: skyblue;
+  }
+
+  .saturday{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    margin-top: 350px;
+    margin-left: 1050px;
+    border-style: groove;
+    border: 0px solid black; 
+    border-radius: 10px;
+    background-color: skyblue;
+  }
+
+  .workout button{
+    position: absolute;
+    font-size: 15px;
+    background: black;
+    width: 150px;
+    color: white;
+    border: 0px solid white;
+    border-radius: 20px;
+    padding: 10px;
+    outline: 0;
+    cursor: pointer;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    margin-left: 1400px;
+    margin-top: -72px;
+  }
+
+  .editworktextbox{
+    margin-left: 24px; 
+    max-width:250px; 
+    max-height:250px; 
+    min-width:250px; 
+    min-height:250px;
+    resize: none;
   }
