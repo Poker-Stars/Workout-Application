@@ -16,6 +16,7 @@ class Exercise {
         this._time = null;
     }
 
+    set disliked(disliked) { this._disliked = disliked; }
     set record(record) { this._record = record; }
     set name(name) { this._name = name; }
     set type(type) { this._type = type; }
@@ -27,6 +28,7 @@ class Exercise {
     set time(time) { this._time = time; }
     set weight(weight) { this._weight = weight; }
     
+    get disliked() { return this._disliked; }
     get record() {return this._record; }
     get name() { return this._name; }
     get type() { return this._type; }
@@ -37,10 +39,6 @@ class Exercise {
     get sets() { return this._sets; }
     get time() { return this._time; }
     get weight() { return this._weight; }
-
-    dislike() { this._disliked = true; }
-    undisliked() { this._disliked = false; }
-    disliked() { return this._disliked; }
 
     complete() {
         var date = new Date();
