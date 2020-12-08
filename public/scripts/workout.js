@@ -90,7 +90,6 @@ function calculateWorkout() {
             var str = "";
             setTimeout(function() {
                 for(i = 0; i < dayCount; i++) {
-                    console.log("" + workoutDays[i] + ":");
                     for(j = 0; j < schedule[i].length; j++) {
                         str = "\t" + schedule[i][j].name;
                         if(schedule[i][j].procedure == 'time-minutes') 
@@ -101,7 +100,6 @@ function calculateWorkout() {
                             str = str + " @ " + schedule[i][j].weight + " lbs";
                         if(schedule[i][j].procedure == 'time-seconds')
                             str = str + "  " + schedule[i][j].sets + " x " + schedule[i][j].time + " seconds";
-                        console.log("" + str);
                         str = "";
                     }
                 }
@@ -121,6 +119,7 @@ function calculateWorkout() {
                                 reps: parseInt(schedule[i][j].reps),
                                 sets: parseInt(schedule[i][j].sets),
                                 time: parseInt(schedule[i][j].time),
+                                tutorial: "" + schedule[i][j].tutorial,
                                 record: Object.assign(schedule[i][j].record)
                                 });
                     }
@@ -155,14 +154,6 @@ function calculateWorkout() {
 
 function openWorkout(day) {
     window.location.href = "workoutdetail.html?day=" + day;
-}
-
-function foo() {
-    document.getElementById('list').insertAdjacentHTML("afterend","");
-}
-
-function foo2() {
-    console.log("hihi");
 }
 
 function fillDays() {

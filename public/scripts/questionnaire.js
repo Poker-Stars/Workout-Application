@@ -88,7 +88,6 @@ function questionnaire(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
             var useruid = user.uid;
-            console.log(useruid);
         } 
         else {
             window.alert("No user is signed in");

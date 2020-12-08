@@ -43,6 +43,8 @@ function schedule_weightloss(schedule, plan, dayCount, bodyFat, shoulders, legs,
                         exOBJ = new Exercise("" + exDB.key, exDB.child('type').val());
                         exOBJ.muscles = exDB.child('muscles').val();
                         exOBJ.procedure = exDB.child('procedure').val();
+                        if(exDB.hasChild('tutorial'))
+                            exOBJ.tutorial = exDB.child('tutorial').val();
                         if (exDB.hasChild('default-time'))
                             exOBJ.time = exDB.child('default-time').val();
                         cardioList.push(Exercise.copy(exOBJ));
@@ -60,6 +62,8 @@ function schedule_weightloss(schedule, plan, dayCount, bodyFat, shoulders, legs,
                         exOBJ = new Exercise("" + exDB.key, exDB.child('type').val());
                         exOBJ.muscles = exDB.child('muscles').val();
                         exOBJ.procedure = exDB.child('procedure').val();
+                        if(exDB.hasChild('tutorial'))
+                            exOBJ.tutorial = exDB.child('tutorial').val();
                         if (exDB.hasChild('default-time'))
                             exOBJ.time = exDB.child('default-time').val();
                         exOBJ.sets = 3;
@@ -123,6 +127,8 @@ function schedule_tone(schedule, plan, dayCount, bodyFat, shoulders, legs, arms,
                         exOBJ = new Exercise("" + exDB.key, exDB.child('type').val());
                         exOBJ.muscles = exDB.child('muscles').val();
                         exOBJ.procedure = exDB.child('procedure').val();
+                        if(exDB.hasChild('tutorial'))
+                            exOBJ.tutorial = exDB.child('tutorial').val();
                         if (exDB.hasChild('default-time'))
                             exOBJ.time = exDB.child('default-time').val();
                         exOBJ.sets = 3;
@@ -142,6 +148,8 @@ function schedule_tone(schedule, plan, dayCount, bodyFat, shoulders, legs, arms,
                         exOBJ = new Exercise("" + exDB.key, exDB.child('type').val());
                         exOBJ.muscles = exDB.child('muscles').val();
                         exOBJ.procedure = exDB.child('procedure').val();
+                        if(exDB.hasChild('tutorial'))
+                            exOBJ.tutorial = exDB.child('tutorial').val();
                         if (exDB.hasChild('default-time'))
                             exOBJ.time = exDB.child('default-time').val();
                         exOBJ.sets = 3;
@@ -162,6 +170,8 @@ function schedule_tone(schedule, plan, dayCount, bodyFat, shoulders, legs, arms,
                         exOBJ = new Exercise("" + exDB.key, exDB.child('type').val());
                         exOBJ.muscles = exDB.child('muscles').val();
                         exOBJ.procedure = exDB.child('procedure').val();
+                        if(exDB.hasChild('tutorial'))
+                            exOBJ.tutorial = exDB.child('tutorial').val();
                         if (exDB.hasChild('default-weight'))
                             exOBJ.weight = exDB.child('default-weight').val();
                         if(bodyShapeModifier < 2 || chest < 3) {
@@ -226,6 +236,8 @@ function schedule_gainmass(schedule, plan, dayCount, bodyFat, shoulders, legs, a
                         exOBJ = new Exercise("" + exDB.key, exDB.child('type').val());
                         exOBJ.muscles = exDB.child('muscles').val();
                         exOBJ.procedure = exDB.child('procedure').val();
+                        if(exDB.hasChild('tutorial'))
+                            exOBJ.tutorial = exDB.child('tutorial').val();
                         if (exDB.hasChild('default-time'))
                             exOBJ.time = exDB.child('default-time').val();
                         exOBJ.sets = 3;
@@ -246,6 +258,9 @@ function schedule_gainmass(schedule, plan, dayCount, bodyFat, shoulders, legs, a
                         exOBJ = new Exercise("" + exDB.key, exDB.child('type').val());
                         exOBJ.muscles = exDB.child('muscles').val();
                         exOBJ.procedure = exDB.child('procedure').val();
+                        if(exDB.hasChild('tutorial')) {
+                            exOBJ.tutorial = exDB.child('tutorial').val();
+                        }
                         if (exDB.hasChild('default-weight'))
                             exOBJ.weight = exDB.child('default-weight').val();
                         if(bodyShapeModifier < 2 || chest < 3) {

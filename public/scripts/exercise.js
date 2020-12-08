@@ -14,6 +14,7 @@ class Exercise {
         this._reps = 0;
         this._sets = 0;
         this._time = 0;
+        this._tutorial = null;
     }
 
     set disliked(disliked) { this._disliked = disliked; }
@@ -27,6 +28,7 @@ class Exercise {
     set sets(sets) { this._sets = sets; }
     set time(time) { this._time = time; }
     set weight(weight) { this._weight = weight; }
+    set tutorial(tutorial) { this._tutorial = tutorial;}
     
     get disliked() { return this._disliked; }
     get record() {return this._record; }
@@ -39,6 +41,7 @@ class Exercise {
     get sets() { return this._sets; }
     get time() { return this._time; }
     get weight() { return this._weight; }
+    get tutorial() {return this._tutorial; }
 
     complete() {
         var date = new Date();
@@ -75,6 +78,7 @@ class Exercise {
         nuevo._weight = util.trps(orig.weight);
         nuevo._completions = util.trps(orig.completions);
         nuevo._disliked = util.trps(orig.disliked);
+        nuevo._tutorial = util.trps(orig.tutorial);
         return nuevo;
     }
 

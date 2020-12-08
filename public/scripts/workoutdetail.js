@@ -36,12 +36,11 @@ function loadWorkout(idx) {
             var outstr = "";
             var exercise;
             for(i = 0; i < dayplan.numChildren(); i++) {
-                console.log("numChildren: " + dayplan.numChildren());
                 exercise = dayplan.child(i);
                 outstr += pre;
 
                 if(exercise.hasChild('tutorial')) 
-                    outstr += youtubePrefix + "" + exercise.tutorial + youtubePostfix;
+                    outstr += youtubePrefix + "" + exercise.val().tutorial + youtubePostfix;
 
                 exercise = exercise.val();
 
@@ -107,7 +106,6 @@ function loadWorkout(idx) {
             }
 
             function writeWorkout() { 
-                console.log(outstr);
                 document.getElementById("list").innerHTML = outstr;
 
             }
