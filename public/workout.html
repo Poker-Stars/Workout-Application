@@ -22,25 +22,32 @@
         </header>
         <div id = "workout_div" class = "workout"> 
             <h1 class = "h1wc">Workout Plan</h1> <button class = "editbutton" onclick = "location.href='editworkout.html';">Edit Workout</button>
-            <div id = "sunday-div" class = "sunday">
-                <p id="sunday_param">Sunday</p>
+            <div id = "sunday-div" class = "day" style = "--marginLeft: 50px">
+                <button class = "daybtn" id = "sunday_btn" onclick="openWorkout(0)"></button>
+                Sunday
             </div>
-            <div id = "monday-div" class = "monday">
+            <div id = "monday-div" class = "day" style = "--marginLeft: 450px">
+                <button class = "daybtn" id = "monday_btn" onclick="openWorkout(1)"></button>
                 Monday
             </div>
-            <div id = "tuesday-div" class = "tuesday">
+            <div id = "tuesday-div" class = "day" style = "--marginLeft: 850px">
+                <button class = "daybtn" id = "tuesday_btn" onclick="openWorkout(2)"></button>
                 Tuesday
             </div>
-            <div id = "wednesday-div" class = "wednesday">
+            <div id = "wednesday-div" class = "day" style = "--marginLeft: 1250px">
+                <button class = "daybtn" id = "wednesday_btn" onclick="openWorkout(3)"></button>
                 Wednesday
             </div>
-            <div id = "thursday-div" class = "thursday">
+            <div id = "thursday-div" class = "day" style = "--marginLeft: 250px; --marginTop: 350px">
+                <button class = "daybtn" id = "thursday_btn" onclick="openWorkout(4)"></button>
                 Thursday
             </div>
-            <div id = "friday-div" class = "friday">
+            <div id = "friday-div" class = "day" style = "--marginLeft: 650px; --marginTop: 350px">
+                <button class = "daybtn" id = "friday_btn" onclick="openWorkout(5)"></button>
                 Friday
             </div>
-            <div id = "saturday-div" class = "saturday">
+            <div id = "saturday-div" class = "day" style = "--marginLeft: 1050px; --marginTop: 350px">
+                <button class = "daybtn" id = "saturday_btn" onclick="openWorkout(6)"></button>
                 Saturday
             </div>
         </div>

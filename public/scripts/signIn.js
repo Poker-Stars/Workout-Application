@@ -20,6 +20,7 @@ function signIn(){
           ref.child(useruid).set({
             username: snapshot.val().username,
             email: snapshot.val().email,
+            first: snapshot.val().first
             /*
             weight: snapshot.val().weight,
             height: snapshot.val().height,

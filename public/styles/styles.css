@@ -145,87 +145,31 @@
     text-align: center;
   }
 
-  .sunday{
+  .day{
     position: absolute;
-    margin-left: 50px;
+    margin-left: var(--marginLeft);
+    margin-top: var(--marginTop);
     width: 300px;
     height: 300px;
-    margin-left: 50px;
     border-style: groove;
     border: 0px solid black; 
     border-radius: 10px;
     background-color: skyblue;
   }
-
-  .monday{
+  .daybtn{
     position: absolute;
     width: 300px;
     height: 300px;
-    margin-left: 450px;
-    border-style: groove;
-    border: 0px solid black; 
+    opacity: 0;
+    cursor: pointer;
+    color: #7c7a7a;
     border-radius: 10px;
-    background-color: skyblue;
+    z-index: 1;
   }
-
-  .tuesday{
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    margin-left: 850px;
-    border-style: groove;
-    border: 0px solid black; 
-    border-radius: 10px;
-    background-color: skyblue;
+  .daybtn:hover {
+    opacity: 0.4;
   }
-
-  .wednesday{
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    margin-left: 1250px;
-    border-style: groove;
-    border: 0px solid black; 
-    border-radius: 10px;
-    background-color: skyblue;
-  }
-
-  .thursday{
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    margin-top: 350px;
-    margin-left: 250px;
-    border-style: groove;
-    border: 0px solid black; 
-    border-radius: 10px;
-    background-color: skyblue;
-  }
-
-  .friday{
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    margin-top: 350px;
-    margin-left: 650px;
-    border-style: groove;
-    border: 0px solid black; 
-    border-radius: 10px;
-    background-color: skyblue;
-  }
-
-  .saturday{
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    margin-top: 350px;
-    margin-left: 1050px;
-    border-style: groove;
-    border: 0px solid black; 
-    border-radius: 10px;
-    background-color: skyblue;
-  }
-
+  /*
   .workout button{
     position: absolute;
     font-size: 15px;
@@ -243,6 +187,7 @@
     margin-left: 1400px;
     margin-top: -72px;
   }
+  */
 
   .editworktextbox{
     margin-left: 24px; 

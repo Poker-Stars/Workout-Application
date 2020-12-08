@@ -1,5 +1,6 @@
 
 function calculateWorkout() {
+
     const database = firebase.database();
     const ref = database.ref('users');
     const auth = firebase.auth();
@@ -33,12 +34,13 @@ function calculateWorkout() {
             snapshot.child('user_exercises').forEach(function(exDB) {
                 exOBJ = new Exercise(exDB.key, exDB.child('type').val());
                 //exOBJ.record = exDB.child(record);
-                exOBJ.procedure = exDB.child('procedure');
+                exOBJ.procedure = exDB.child('procedure').val();
                 exOBJ.speed = exDB.child('speed').val();
                 exOBJ.muscles = exDB.child('muscles').val();
                 exOBJ.reps = exDB.child('reps').val();
                 exOBJ.sets = exDB.child('sets').val();
                 exOBJ.time = exDB.child('time').val();
+                if(exDB.hasChild('record')) exOBJ.record = exDB.child('record').val();
                 userExercises.push(Exercise.copy(exOBJ));
                 exOBJ = null;
             });
@@ -103,8 +105,53 @@ function calculateWorkout() {
                         str = "";
                     }
                 }
+
+                var _weekplan = new Array();
+                var day;
+                for(i = 0; i < schedule.length; i++) {
+                    day = new Array();
+                    for(j = 0; j < schedule[i].length; j++) {
+                        day.push({
+                                name: "" + schedule[i][j].name,
+                                type: "" + schedule[i][j].type,
+                                procedure: "" + schedule[i][j].procedure,
+                                muscles: "" + schedule[i][j].muscles,
+                                weight: parseInt(schedule[i][j].weight),
+                                speed: parseInt(schedule[i][j].speed),
+                                reps: parseInt(schedule[i][j].reps),
+                                sets: parseInt(schedule[i][j].sets),
+                                time: parseInt(schedule[i][j].time),
+                                record: Object.assign(schedule[i][j].record)
+                                });
+                    }
+                    _weekplan.push(Object.assign(day));
+                }
+                setTimeout(function() {
+                    ref.child(useruid).set({
+                        username: snapshot.val().username,
+                        email: snapshot.val().email, 
+                        weight: snapshot.val().weight,
+                        height_ft: snapshot.val().height_ft,
+                        height_in: snapshot.val().height_in,
+                        height : snapshot.val().height,
+                        time : snapshot.val().time,
+                        goal : snapshot.val().goal,
+                        days : snapshot.val().days,
+                        body_fat : snapshot.val().body_fat,
+                        shoulders : snapshot.val().shoulders,
+                        back : snapshot.val().back,
+                        legs : snapshot.val().legs,
+                        arms : snapshot.val().arms,
+                        chest : snapshot.val().chest,
+                        first: snapshot.val().first,
+                        weekplan: _weekplan
+                    });
+                }, 300);
             }, 2000);
         });
     });
 }
 
+function openWorkout(x) {
+    console.log(x);
+}

@@ -4,16 +4,16 @@ class Exercise {
     constructor(name, type) {
         this._name = name;
         this._type = type;
-        this._record = null;
+        this._record = new Array();
         this._completions = 0;
         this._disliked = false;
         this._procedure = null;
-        this._muscles = null;
-        this._weight = null;
-        this._speed = null;
-        this._reps = null;
-        this._sets = null;
-        this._time = null;
+        this._muscles = 0;
+        this._weight = 0;
+        this._speed = 0;
+        this._reps = 0;
+        this._sets = 0;
+        this._time = 0;
     }
 
     set disliked(disliked) { this._disliked = disliked; }
@@ -42,16 +42,25 @@ class Exercise {
 
     complete() {
         var date = new Date();
-        var session = new Array();
-        session.push([date.getMonth(), date.getDate(), date.getFullYear()]);
+        var session;
 
-        if(this._speed != 'null') session.push(this._speed);
-        if(this._reps != 'null') session.push(this._reps);
-        if(this._sets != 'null') session.push(this._sets);
-        if(this._time != 'null') session.push(this._sets);
+        if(this._procedure == 'repitition')
+            if(this._type == 'strength')
+                session = {sets: this._sets, reps: this._reps, weight: this._weight};
+            else
+                session = {sets = this._sets, reps: this._reps};
+      
+        if(this._procedure == 'time-seconds')
+            session = {sets: this._sets, time: this._time};
 
-        this._completions++;
-        this._record.push([this._completions, session]);
+        if(this._procedure == 'time-minutes')
+            if(this._speed != 0)
+                session = {time: this._time, speed: this._speed};
+            else
+                session = {time: this._time};
+        
+        let today = {month: date.getMonth(), day: date.getDate(), year: date.getFullYear()};
+        this._record.push({date: Object.assign(today), stats: Object.assign(session)});
     }
 
     static copy(orig) {
