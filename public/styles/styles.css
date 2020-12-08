@@ -159,7 +159,7 @@
     border-style: groove;
     border: 0px solid black; 
     border-radius: 10px;
-    background-color: skyblue;
+    background-color: #fffdd0;
   }
   .daybtn{
     position: absolute;
@@ -208,14 +208,20 @@
     margin: auto;
     width: 50%;
     background-color: honeydew;
+    border-radius: 10px;
+    border-width: 10px;
+    border-color: black;
   }
 
   .exercise_list{
     padding: 10px;
-    background-color: turquoise;
+    background-color: #fffdd0;
     min-height: auto;
     list-style-type: none;
     width: 600px;
+    border-width: 10px;
+    border-radius: 10px;
+    border-color: black;
     position: absolute;
   }
 
