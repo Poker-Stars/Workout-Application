@@ -28,7 +28,6 @@ function signUp(){
       window.alert(errorMessage);
       });
     }else {
-      window.alert('hi');
       document.getElementById("no_match").innerHTML = "Passwords do not match";
     }
 }

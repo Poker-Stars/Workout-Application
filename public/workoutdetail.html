@@ -20,36 +20,14 @@
                 </ul>
             </nav>
         </header>
-        <div id = "workout_div" class = "workout"> 
-            <h1 class = "h1wc">Edit Workout Plan</h1> <button class = "editbutton" onclick = "location.href='workout.html';">Submit</button>
-            <div id = "sunday-div" class = "sunday">
-                <center>Sunday</center>
-                <textarea class = "editworktextbox">Editing Sunday</textarea>
-            </div>
-            <div id = "monday-div" class = "monday">
-                <center>Monday</center>
-                <textarea class = "editworktextbox">Editing Monday</textarea>
-            </div>
-            <div id = "tuesday-div" class = "tuesday">
-                <center>Tuesday</center>
-                <textarea class = "editworktextbox">Editing Tuesday</textarea>
-            </div>
-            <div id = "wednesday-div" class = "wednesday">
-                <center>Wednesday</center>
-                <textarea class = "editworktextbox">Editing Wednesday</textarea>
-            </div>
-            <div id = "thursday-div" class = "thursday">
-                <center>Thursday</center>
-                <textarea class = "editworktextbox">Editing Thursday</textarea>
-            </div>
-            <div id = "friday-div" class = "friday">
-                <center>Friday</center>
-                <textarea class = "editworktextbox">Editing Friday</textarea>
-            </div>
-            <div id = "saturday-div" class = "saturday">
-                <center>Saturday</center>
-                <textarea class = "editworktextbox">Editing Saturday</textarea>
-            </div>
+        
+        <h1 id = "day_header" style = "margin: auto; width: 50%; color: white; outline-color: black;"></h1>
+
+        <div class = "exercise_div">
+            <ul class = "exercise_list" id = "list">
+            </ul>
+        </div>
+
         </div>
         <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>
         <script src = "./scripts/util.js"></script>
@@ -57,6 +35,7 @@
         <script src = "./scripts/exercise.js"> </script>
         <script src = "./scripts/goalscheduler.js"></script>
         <script src = "./scripts/scheduler.js"></script>
+        <script src = "./scripts/workoutdetail.js"></script>
         <script src = "./scripts/workout.js"> </script>
         <script>
             var firebaseConfig = {
@@ -69,8 +48,8 @@
                 appId: "1:323648675143:web:34762df453e1d6dc0a0062",
             };
             firebase.initializeApp(firebaseConfig);
+            loadWorkout(getDay());
         </script>
-        <button onclick="calculateWorkout()">Calculate Workout</button>
         <!-- <p id = "cardio_param">Right Click on Page,</p>
         <p id = "bodyweight_param">Inspect</p>
         <p id = "strength_param">Go to Console, click Calculate Workout, wait 3 seconds</p> -->

@@ -25,6 +25,11 @@
     background-color: white;
   }
 
+  .workout h1{
+    font-size: "18";
+    text-align: center;
+  }
+
   .tracker-bg{
     background-image: url("images/tracker.jpg");
     height: 100%;
@@ -189,6 +194,7 @@
   }
   */
 
+
   .editworktextbox{
     margin-left: 24px; 
     max-width:250px; 
@@ -197,3 +203,75 @@
     min-height:250px;
     resize: none;
   }
+
+  .exercise_div {
+    margin: auto;
+    width: 50%;
+    background-color: honeydew;
+  }
+
+  .exercise_list{
+    padding: 10px;
+    background-color: turquoise;
+    min-height: auto;
+    list-style-type: none;
+    width: 600px;
+    position: absolute;
+  }
+
+  .exercise_list li{
+    border: 3px solid grey;
+    padding: 10px;
+    min-height: 100px;
+    overflow: auto;
+  }
+
+  .exercise_list li img {
+    float: left;
+    margin: 0 5px 0 0;
+    max-width: 150px;
+    max-height: 90px;
+  }
+
+  .tutorial{
+    float: left;
+    margin: 0 5px 0 0;
+    max-width: 150px;
+    max-height: 90px;
+  }
+
+  .complete_btn {
+    float: bottom;
+    color: green;
+    width: 100px;
+    height: 35px;
+  }
+
+  .ipt_label {
+    float: right;
+    font-size: 18;
+  }
+
+  .intensity_ipt {
+    float: bottom;
+    margin: 0 0 0 0;
+    width: 50px;
+    height: 50px;
+    font-size: 18;
+    text-align: center;
+    text-align: bottom;
+  }
+
+  .unmutable_intensity {
+    font-size: 18;
+    float: right;
+  }
+
+  .exercise_list p {
+    font-size: 16;
+  }
+
+  .exercise_list h3 {
+    font-size: 17;
+  }
+

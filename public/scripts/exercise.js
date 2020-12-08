@@ -48,7 +48,7 @@ class Exercise {
             if(this._type == 'strength')
                 session = {sets: this._sets, reps: this._reps, weight: this._weight};
             else
-                session = {sets = this._sets, reps: this._reps};
+                session = {sets: this._sets, reps: this._reps};
       
         if(this._procedure == 'time-seconds')
             session = {sets: this._sets, time: this._time};

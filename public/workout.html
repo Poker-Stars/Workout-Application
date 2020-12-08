@@ -21,42 +21,51 @@
             </nav>
         </header>
         <div id = "workout_div" class = "workout"> 
-            <h1 class = "h1wc">Workout Plan</h1> <button class = "editbutton" onclick = "location.href='editworkout.html';">Edit Workout</button>
+            <h1 class = "h1wc">Workout Plan</h1>
             <div id = "sunday-div" class = "day" style = "--marginLeft: 50px">
                 <button class = "daybtn" id = "sunday_btn" onclick="openWorkout(0)"></button>
-                Sunday
+                <h1>Sunday</h1>
+                <p id = "sunday-plan"></p>
             </div>
             <div id = "monday-div" class = "day" style = "--marginLeft: 450px">
                 <button class = "daybtn" id = "monday_btn" onclick="openWorkout(1)"></button>
-                Monday
+                <h1>Monday</h1>
+                <p id = "monday-plan"></p>
             </div>
             <div id = "tuesday-div" class = "day" style = "--marginLeft: 850px">
                 <button class = "daybtn" id = "tuesday_btn" onclick="openWorkout(2)"></button>
-                Tuesday
+                <h1>Tuesday</h1>
+                <p id = "tuesday-plan"></p>
             </div>
             <div id = "wednesday-div" class = "day" style = "--marginLeft: 1250px">
                 <button class = "daybtn" id = "wednesday_btn" onclick="openWorkout(3)"></button>
-                Wednesday
+                <h1>Wednesday</h1>
+                <p id = "wednesday-plan"></p>
             </div>
             <div id = "thursday-div" class = "day" style = "--marginLeft: 250px; --marginTop: 350px">
                 <button class = "daybtn" id = "thursday_btn" onclick="openWorkout(4)"></button>
-                Thursday
+                <h1>Thursday</h1>
+                <p id = "thursday-plan"></p>
             </div>
             <div id = "friday-div" class = "day" style = "--marginLeft: 650px; --marginTop: 350px">
                 <button class = "daybtn" id = "friday_btn" onclick="openWorkout(5)"></button>
-                Friday
+                <h1>Friday</h1>
+                <p id = "friday-plan"></p>
             </div>
             <div id = "saturday-div" class = "day" style = "--marginLeft: 1050px; --marginTop: 350px">
                 <button class = "daybtn" id = "saturday_btn" onclick="openWorkout(6)"></button>
-                Saturday
+                <h1>Saturday</h1>
+                <p id = "saturday-plan"></p>
             </div>
         </div>
+        <button onclick="calculateWorkout()" style = "margin-left: 800px; margin-top: 10px; height: 60px; width: 200px; font-size: 20;">Calculate Workout</button>
         <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase.js"></script>
         <script src = "./scripts/util.js"></script>
         <script src = "./scripts/exerciseplanner.js"></script>
         <script src = "./scripts/exercise.js"> </script>
         <script src = "./scripts/goalscheduler.js"></script>
         <script src = "./scripts/scheduler.js"></script>
+        <script src = "./scripts/workoutdetail.js"></script>
         <script src = "./scripts/workout.js"> </script>
         <script>
             var firebaseConfig = {
@@ -69,8 +78,8 @@
                 appId: "1:323648675143:web:34762df453e1d6dc0a0062",
             };
             firebase.initializeApp(firebaseConfig);
+            fillDays();
         </script>
-        <button onclick="calculateWorkout()">Calculate Workout</button>
         <!-- <p id = "cardio_param">Right Click on Page,</p>
         <p id = "bodyweight_param">Inspect</p>
         <p id = "strength_param">Go to Console, click Calculate Workout, wait 3 seconds</p> -->

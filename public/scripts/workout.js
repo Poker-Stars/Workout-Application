@@ -146,12 +146,48 @@ function calculateWorkout() {
                         first: snapshot.val().first,
                         weekplan: _weekplan
                     });
+                    location.reload();
                 }, 300);
             }, 2000);
         });
     });
 }
 
-function openWorkout(x) {
-    console.log(x);
+function openWorkout(day) {
+    window.location.href = "workoutdetail.html?day=" + day;
+}
+
+function foo() {
+    document.getElementById('list').insertAdjacentHTML("afterend","");
+}
+
+function foo2() {
+    console.log("hihi");
+}
+
+function fillDays() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) var useruid = user.uid;
+        else window.alert("No user is signed in");
+
+        firebase.database().ref('users/'+useruid).once('value').then(function (snapshot){
+            const weekdays = ['sunday-plan', 'monday-plan', 'tuesday-plan', 'wednesday-plan', 'thursday-plan', 'friday-plan', 'saturday-plan'];
+            week = snapshot.child('weekplan');
+            dayCount = -1;
+            var day_txt;
+            var day;
+            for(i = 0; i < 7; i++) {
+                var str = "";
+                if(!snapshot.child('days').child(i).val()) str = "Rest day";
+                else {
+                    dayCount++;
+                    day = week.child(dayCount);
+                    for(j = 0; j < day.numChildren(); j++) {
+                        str += "" + day.child(j).val().name + "<br>";
+                    }
+                }
+                document.getElementById(weekdays[i]).innerHTML = str;
+            }
+        });
+    });
 }

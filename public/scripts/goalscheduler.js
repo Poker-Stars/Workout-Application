@@ -61,7 +61,7 @@ function plan_tone(plan, exerciseTime, dayCount) {
 
         case 60:
             for(i = 0; i < dayCount; i++) {
-                plan.cardioBlock.push([20, 1]);
+                plan.cardioBlock.push([20, 2]);
                 plan.bodyweightBlock.push([20, 4]);
                 plan.strengthBlock.push([20, 4]);
             }
