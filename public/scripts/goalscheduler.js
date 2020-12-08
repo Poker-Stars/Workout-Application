@@ -72,8 +72,7 @@ function plan_tone(plan, exerciseTime, dayCount) {
 /*
 * The gain muscle mass goal is split between bodyweight and strength exercises; cardio kills gainz
 */
-function gainmass(plan, dayCount, exerciseTime) {
-
+function plan_gainmass(plan, exerciseTime, dayCount) {
     switch(exerciseTime) {
 
         case 30:
@@ -92,7 +91,6 @@ function gainmass(plan, dayCount, exerciseTime) {
             
         case 60:
             for(i = 0; i < dayCount; i++) {
-                
                 plan.bodyweightBlock.push([30, 6]);
                 plan.strengthBlock.push([30, 6]);
             }

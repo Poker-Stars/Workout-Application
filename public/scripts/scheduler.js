@@ -79,7 +79,6 @@ function scheduler(schedule, cardioList, bodyweightList, strengthList, plan, day
             for(j = 0; j < bodyweightWeek[i].length; j++) session.push(bodyweightWeek[i][j]);
             for(j = 0; j < strengthWeek[i].length; j++) session.push(strengthWeek[i][j]);
             schedule.push(util.copyArr(session));
-
             session = new Array();
         }
     }

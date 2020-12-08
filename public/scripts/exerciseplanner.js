@@ -8,7 +8,6 @@ function schedule_weightloss(schedule, plan, dayCount, bodyFat, shoulders, legs,
     /* lists of cardio exercises, bodyweight exercises, and strength exercises */
     var cardioList = Array();
     var bodyweightList = Array();
-    var strengthList = null;
     var counter = 0;
 
     /* put exercises that the user has already done into the lists */
@@ -72,7 +71,7 @@ function schedule_weightloss(schedule, plan, dayCount, bodyFat, shoulders, legs,
                 counter++;
             });
             if(counter == snapshot.numChildren()) {
-                scheduler(schedule, cardioList, bodyweightList, strengthList, plan, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises);
+                scheduler(schedule, cardioList, bodyweightList, null, plan, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises);
             }
         }));
     }
@@ -192,7 +191,6 @@ function schedule_tone(schedule, plan, dayCount, bodyFat, shoulders, legs, arms,
 function schedule_gainmass(schedule, plan, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises, bodyShapeModifier) {
 
     /* lists of cardio exercises, bodyweight exercises, and strength exercises */
-    var cardioList = null;
     var bodyweightList = Array();
     var strengthList = Array();
     var counter = 0;
@@ -264,7 +262,7 @@ function schedule_gainmass(schedule, plan, dayCount, bodyFat, shoulders, legs, a
                 counter++;
             });
             if(counter == snapshot.numChildren()) {
-                scheduler(schedule, cardioList, bodyweightList, strengthList, plan, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises);
+                scheduler(schedule, null, bodyweightList, strengthList, plan, dayCount, bodyFat, shoulders, legs, arms, back, chest, userExercises);
             }
         }));
     }
